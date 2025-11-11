@@ -23,6 +23,22 @@ export default function Navigation() {
     setMobileMenuOpen(false)
   }, [pathname])
 
+  useEffect(() => {
+    // Обработка хеша при загрузке страницы или изменении хеша
+    if (pathname === '/') {
+      const hash = window.location.hash
+      if (hash) {
+        const id = hash.substring(1) // Убираем #
+        setTimeout(() => {
+          const element = document.getElementById(id)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100) // Небольшая задержка для загрузки DOM
+      }
+    }
+  }, [pathname])
+
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false)
     if (pathname !== '/') {
@@ -30,7 +46,11 @@ export default function Navigation() {
       return
     }
     const element = document.getElementById(id)
-    element?.scrollIntoView({ behavior: 'smooth' })
+    if (element) {
+      // Обновляем URL с хешем без перезагрузки страницы
+      window.history.pushState(null, '', `#${id}`)
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   const menuItems = ['About', 'Music', 'Lyrics', 'Collaboration']
