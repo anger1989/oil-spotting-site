@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { trackLyricsView, trackMusicPlay } from '@/lib/analytics'
 
 interface Lyric {
   id: string
@@ -38,7 +39,13 @@ export default function LyricsList({ lyrics }: LyricsListProps) {
             className="relative"
           >
             <motion.button
-              onClick={() => setSelectedId(selectedId === lyric.id ? null : lyric.id)}
+              onClick={() => {
+                const newSelectedId = selectedId === lyric.id ? null : lyric.id
+                setSelectedId(newSelectedId)
+                if (newSelectedId === lyric.id) {
+                  trackLyricsView(lyric.name)
+                }
+              }}
               className="w-full text-left p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/0 hover:from-white/10 hover:to-white/5 transition-all duration-300 group relative overflow-hidden"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -54,7 +61,10 @@ export default function LyricsList({ lyrics }: LyricsListProps) {
                       href={lyric.spotifyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        trackMusicPlay('spotify', lyric.name)
+                      }}
                       className="transition-opacity hover:opacity-80"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}

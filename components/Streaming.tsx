@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { trackMusicPlay } from '@/lib/analytics'
 
 const TelegramIcon = () => (
   <svg
@@ -43,6 +44,7 @@ export default function Streaming() {
             href="https://open.spotify.com/artist/2Mb89dzEbRSGfiBhqocisp"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackMusicPlay('spotify')}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -66,6 +68,7 @@ export default function Streaming() {
             href="https://t.me/oilspotting"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackMusicPlay('telegram')}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -83,6 +86,7 @@ export default function Streaming() {
             href="https://music.youtube.com/channel/UCwGyzG48NG07ddmCLGQ93Lg"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackMusicPlay('youtube_music')}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

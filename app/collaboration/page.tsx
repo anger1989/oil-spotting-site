@@ -3,6 +3,7 @@
 import Navigation from '@/components/Navigation'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { trackContact } from '@/lib/analytics'
 
 export default function CollaborationPage() {
   return (
@@ -49,6 +50,7 @@ export default function CollaborationPage() {
                   </div>
                   <a
                     href="mailto:official@oil-spotting.com"
+                    onClick={() => trackContact('email')}
                     className="text-xl text-white/80 hover:text-white transition-colors break-all"
                   >
                     official@oil-spotting.com
@@ -92,6 +94,7 @@ export default function CollaborationPage() {
                       href="https://t.me/oilspotting"
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackContact('telegram')}
                       className="text-white/80 hover:text-white transition-colors"
                     >
                       @oilspotting
