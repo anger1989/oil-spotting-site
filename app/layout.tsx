@@ -1,16 +1,64 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import StructuredData from '@/components/StructuredData'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Oil Spotting | Cosmic Synthwave Music',
-  description: 'Oil Spotting - a music band in synthwave, deep house, rock and cosmic space genres. Cosmic music for journeys through the universe.',
-  keywords: 'Oil Spotting, synthwave, deep house, rock, cosmic space, music, band',
+  title: {
+    default: 'Oil Spotting | Cosmic Synthwave Music',
+    template: '%s | Oil Spotting',
+  },
+  description: 'Oil Spotting - a music band in synthwave, deep house, rock and cosmic space genres. Cosmic music for journeys through the universe. Listen on Spotify, YouTube Music, and Telegram.',
+  keywords: ['Oil Spotting', 'synthwave', 'deep house', 'rock', 'cosmic space', 'music', 'band', 'electronic music', 'space music', 'cosmic synthwave'],
+  authors: [{ name: 'Oil Spotting' }],
+  creator: 'Oil Spotting',
+  publisher: 'Oil Spotting',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://oilspotting.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: '/',
+    siteName: 'Oil Spotting',
+    title: 'Oil Spotting | Cosmic Synthwave Music',
+    description: 'Oil Spotting - a music band in synthwave, deep house, rock and cosmic space genres. Cosmic music for journeys through the universe.',
+    images: [
+      {
+        url: '/images/emblem.png',
+        width: 2010,
+        height: 1602,
+        alt: 'Oil Spotting Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Oil Spotting | Cosmic Synthwave Music',
+    description: 'Oil Spotting - a music band in synthwave, deep house, rock and cosmic space genres.',
+    images: ['/images/emblem.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
-    icon: '/images/logo.png',
-    apple: '/images/logo.png',
+    icon: '/images/emblem.png',
+    apple: '/images/emblem.png',
+  },
+  verification: {
+    // Добавьте здесь ваш Google Search Console verification code
+    // google: 'your-verification-code',
   },
 }
 
@@ -21,7 +69,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <StructuredData />
+        {children}
+      </body>
     </html>
   )
 }
