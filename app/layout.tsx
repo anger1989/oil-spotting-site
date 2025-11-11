@@ -57,8 +57,10 @@ export const metadata: Metadata = {
     apple: '/images/emblem.png',
   },
   verification: {
-    // Добавьте здесь ваш Google Search Console verification code
-    // google: 'your-verification-code',
+    google: 'kEt1lQUuPeI4DZeGu51hmx-eEHAg0oM-LvQMWOLVO-4',
+  },
+  other: {
+    'google-site-verification': 'kEt1lQUuPeI4DZeGu51hmx-eEHAg0oM-LvQMWOLVO-4',
   },
 }
 
