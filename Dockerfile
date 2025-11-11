@@ -14,6 +14,14 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Build arguments для переменных окружения
+ARG NEXT_PUBLIC_GA_ID
+ARG NEXT_PUBLIC_SITE_URL
+
+# Устанавливаем переменные окружения для сборки
+ENV NEXT_PUBLIC_GA_ID=${NEXT_PUBLIC_GA_ID}
+ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+
 RUN npm run build
 
 # Production image, copy all the files and run next
