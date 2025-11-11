@@ -35,23 +35,18 @@ export default function About() {
             About
           </h2>
           <div className="space-y-6 text-lg text-white/80 leading-relaxed">
+
             <p>
-              <strong className="text-white">Oil Spotting</strong> is a music collective 
-              creating unique sound at the intersection of synthwave, deep house, rock and cosmic music. 
-              Our music is a journey through galaxies, where each track tells its own 
-              cosmic story.
+            We crafting a unique sound at the intersection of synthwave, deep house, rock, and cosmic music. We turn sound into an interstellar journey, where every track tells a story from another universe.
             </p>
             <p>
-              We draw inspiration from the vast expanses of the universe, creating soundscapes 
-              that transport listeners to distant worlds and unexplored spaces. Our music 
-              combines the nostalgia of synthwave, the depth of deep house, the energy of rock 
-              and the mystery of cosmic sounds.
+            Our music isn’t just something to listen to — it’s a portal to uncharted worlds. Deep basslines guide you through nebulae, shimmering synths paint distant planets, and powerful guitar riffs light the way toward new horizons.
             </p>
+            Inspired by the infinite vastness of space, we channel its mystery, energy, and emotion into sonic landscapes that make your heart race and your mind drift beyond the ordinary.
             <p>
-              Each composition is a unique journey, where synthesizers create the atmosphere 
-              of distant planets, bass lines lead through nebulae, and guitar riffs illuminate 
-              the path to new horizons.
+            Oil Spotting isn’t just a genre — it’s a feeling.
             </p>
+          
           </div>
           </motion.div>
         </div>

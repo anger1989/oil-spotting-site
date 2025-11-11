@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
@@ -34,6 +35,21 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="mb-8 flex justify-center"
           >
+            <Image
+              src="/images/logo.png"
+              alt="Oil Spotting"
+              width={500}
+              height={167}
+              className="h-40 md:h-56 lg:h-72 w-auto object-contain mb-8"
+              priority
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-8 flex justify-center"
+          >
             <div className="emblem-glitch relative inline-block">
               <img 
                 src="/images/emblem.png" 
@@ -60,7 +76,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/80 mb-4 font-normal"
           >
-            Cosmic music for journeys through the universe
+            Trio from Deep Space
           </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -71,12 +87,13 @@ export default function Hero() {
             {['Synthwave', 'Deep House', 'Rock', 'Cosmic Space'].map((genre, index) => (
               <motion.span
                 key={genre}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.8, rotate: -5 + index * 3 }}
+                animate={{ opacity: 1, scale: 1, rotate: -5 + index * 3 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="futuristic-tag text-sm font-medium text-white relative z-10 uppercase tracking-wider"
+                whileHover={{ scale: 1.1, rotate: -5 + index * 3 + 5 }}
+                className="futuristic-tag asteroid-tag text-sm font-medium text-white relative z-10 uppercase tracking-wider"
                 data-text={genre}
+                data-asteroid={index}
               >
                 <span className="relative z-10">{genre}</span>
                 <span className="inner-border"></span>
