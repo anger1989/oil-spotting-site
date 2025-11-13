@@ -1,4 +1,4 @@
-[Verse 1]
+[Verse]
 Flash bends the sky
 Stars wink goodbye
 Engines hum a tune
@@ -10,7 +10,7 @@ Clouds stretch, colors glow
 Rules twist, can’t relate
 Toons rule — animate!
 
-[Verse 2]
+[Verse]
 Planets bounce high
 Time drips by
 Ships grin wide
